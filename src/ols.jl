@@ -25,22 +25,7 @@ function fit(model::OLSModel)
     return model
 end
 
-
-ϵ = rand(100)
-X = rand(100, 5)
-X
-y = X*[ 1; 2; 3; 4; 5] + ϵ
-
-
-my_model = OLSModel(y, X)
-
-fit!(my_model)
-fitted_model = fit(my_model)
-
-
-
 coef(model::OLSModel) = model.β  
-coef(fitted_model)
 """
     fit(model::Model)
 Fit model.
