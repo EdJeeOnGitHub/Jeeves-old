@@ -15,13 +15,12 @@ end
 function fit!(model::OLSModel)
     y = model.y
     X = model.X
-
-    β = inv(X'X) * X'y
-    return β, y, X
+    β = X \ y 
+    return β
 end
 
 function fit(model::OLSModel)
-    model.β, model.y, model.X = fit!(model)
+    model.β = fit!(model)
     return model
 end
 
