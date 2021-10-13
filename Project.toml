@@ -1,0 +1,8 @@
+name = "jeeves"
+uuid = "987d2277-0592-4456-af55-0380aa0129f5"
+authors = ["EdJeeOnGitHub <edjee96@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+PkgTemplates = "14b8a8f1-9102-5b29-a752-f990bacb7fe1"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
