@@ -5,12 +5,7 @@ mutable struct OLSModel <: LinearModel
     vcov::String
     β::Vector
 
-    function OLSModel(y::Vector, X::Matrix)
-        length(y) == size(X, 1) || error("y and x have differing numbers
-        of observations.")
-        new(y, X)
-    end
-    function OLSModel(y::Vector, X::Matrix, vcov::String)
+    function OLSModel(y::Vector, X::Matrix; vcov="iid")
         length(y) == size(X, 1) || error("y and x have differing numbers
         of observations.")
         new(y, X, vcov)
@@ -42,19 +37,3 @@ end
 
 
 
-"""
-    coef(model::OLSModel)
-For now just returns β coefs.
-"""
-coef(model::OLSModel) = model.β 
-
-function summary(model::OLSModel)
-    nobs = length(model.y)
-    vcov = model.vcov
-    estimates = model.β
-
-    printstyled("Observations: $(nobs)\n", color = :red)
-    printstyled("vcov: $(standarderrors)", color = :green)
-    printstyled("Estimates: $(estimates)", color = :blue)
-
-end
