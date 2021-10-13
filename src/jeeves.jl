@@ -1,4 +1,8 @@
 module jeeves
+    using LinearAlgebra
+
+
+
     export fit
     export fit!
     export coef
