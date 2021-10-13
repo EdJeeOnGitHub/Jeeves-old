@@ -2,6 +2,11 @@ module jeeves
     export fit
     export fit!
     export coef
-greet() = print("Hello World!")
+    export summary
+
+
+
+
+    include("model.jl")
     include("ols.jl")
 end # module
