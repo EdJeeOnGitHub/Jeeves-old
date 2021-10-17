@@ -2,13 +2,14 @@ abstract type Model end
 abstract type LinearModel <: Model  end
 abstract type DoesThomasEvenReadThis <: Model end
 
+abstract type Fit end
+abstract type LinearModelFit <: Fit end
 
 
-
-function summary(model::Model)
+function summary(model::Fit)
     nobs = length(model.y)
     vcov = model.vcov
-    estimates = model.β
+    estimates = model.modelfit.β
 
     printstyled("Observations: $(nobs)\n", color = :red)
     printstyled("vcov: $(vcov)\n", color = :green)
@@ -17,10 +18,16 @@ function summary(model::Model)
 end
 
 """
+    coef(model::Fit)
+For now just returns β coefs.
+"""
+coef(model::Fit) = model.modelfit.β 
+
+"""
     coef(model::Model)
 For now just returns β coefs.
 """
-coef(model::Model) = model.β 
+coef(model::Model) = error("Fit model first by calling fit(model::Model)") 
 
 """
     fit(model::Model)
@@ -42,14 +49,3 @@ dependentvariable(model::Model) = error("dependentvariable undefined for $(typeo
 Design matrix of the model.
 """
 designmatrix(model::Model) = error("designmatrix undefined for $(typeof(model))")
-
-
-
-
-
-
-"""
-    vcov(model::Model)
-Model variance-covariance matrix.
-"""
-vcov(model::Model) = error("Variance-covariance matrix undefined for $(typeof(model))")

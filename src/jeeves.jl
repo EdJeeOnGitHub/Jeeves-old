@@ -12,5 +12,6 @@ module jeeves
 
 
     include("model.jl")
+    include("vcov.jl")
     include("ols.jl")
 end # module

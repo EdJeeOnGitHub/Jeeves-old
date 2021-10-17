@@ -1,13 +1,10 @@
 
 
 struct vcov 
-    type::String
+    type::Symbol
     # cluster::tobeimplemented
 
-    function vcov(type::String)
-
-        
-
-        
+    function vcov(type::Symbol)
+        new(type)
     end
 end
