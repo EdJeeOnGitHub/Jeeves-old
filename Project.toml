@@ -1,10 +1,8 @@
-name = "jeeves"
+name = "Jeeves"
 uuid = "987d2277-0592-4456-af55-0380aa0129f5"
 authors = ["EdJeeOnGitHub <edjee96@gmail.com>"]
 version = "0.1.0"
 
 [deps]
 GLM = "38e38edf-8417-5370-95a0-9cbb8c7f171a"
-LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 PkgSkeleton = "d254efa0-af53-535e-b7f1-03c1c9fbcbe7"
-Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
